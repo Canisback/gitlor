@@ -2,6 +2,7 @@ import React from 'react';
 import {Form} from './Login';
 import LogoutButton from './LogoutButton';
 import Auth from './Auth';
+import { Link } from 'react-router-dom';
 
 class Navbar extends React.Component{
     
@@ -13,6 +14,7 @@ class Navbar extends React.Component{
         };
         Auth.attach(this)
         this.notify = this.notify.bind(this)
+        Auth.update(function(){console.log(Auth)})
     }
     
     notify(){
@@ -26,12 +28,9 @@ class Navbar extends React.Component{
               <a className="nav-button active" href="/">
                 Home
               </a>
-              <div className="nav-button">
-                Je suis un bouton de la nav bar
-              </div>
-              <button className="nav-button">
-                Moi aussi
-              </button>
+                <Link to={'/explore'} className="nav-button">
+                  Explore
+                </Link>
               <div id="nav-bar-right-pane">
                 {!loggedIn && 
                 (<div className="dropdown align-right">

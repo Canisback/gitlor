@@ -23,9 +23,8 @@ this.login = function(req, res){
     db.comparePassword(req.body.username, req.body.password, function(result, response, value){
         if(result == true){
             if(response){
-                console.log("login")
                 req.session.username = value.username
-                req.session._id = value._id
+                req.session.userId = value._id
                 res.send("1")
             }else{
                 res.send("2")

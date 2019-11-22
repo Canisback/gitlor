@@ -5,7 +5,7 @@ this.createProject = function(req, res){
     if(!"_id" in req.session){
         res.send("2")
     }else{
-        db.createProject(req.session.id, req.body.name, function(result, item){
+        db.createProject(req.session.userId, req.body.name, function(result, item){
             if(result == true){
                 res.send(item.ops[0]._id)
             }else{
@@ -31,8 +31,7 @@ this.getProject = function(req, res){
 
 this.createCommit = function(req, res){
     let projectId = req.body.projectId
-    let userId = req.session._id
-    
+    let userId = req.session.userId
     db.getProject(req.body.id, function(result, item){
         if(result){
             if(item.ops[0].user == userId){

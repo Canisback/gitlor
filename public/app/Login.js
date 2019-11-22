@@ -11,7 +11,7 @@ class Login extends React.Component{
     render(){
         return (
         <div>
-            <Navbar auth={auth}/>
+            <Navbar/>
             Gitlor Login
             <div style={{"maxWidth":"300px"}}>
                 <Form />

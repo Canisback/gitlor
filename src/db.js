@@ -83,8 +83,10 @@ this.comparePassword = function(username, password, callback){
 
 
 this.createProject = function(userId, name, callback){
+    console.log(userId)
+    let o_id = new mongo.ObjectID(userId)
     projectCollection.insertOne({
-        "user":userId,
+        "user":o_id,
         "name":name,
         "description":"",
         "commits":[],
@@ -105,11 +107,19 @@ this.createProject = function(userId, name, callback){
 
 this.getProject = function(projectId, callback){
     let o_id = new mongo.ObjectID(projectId)
-    projectCollection.findOne(
-        {"_id":o_id},
+    projectCollection.aggregate([
+        { $match:{"_id":o_id}},
+        {$lookup:
+           {
+             from: 'users',
+             localField: 'user',
+             foreignField: '_id',
+             as: 'userDetails'
+           }}
+        ]).toArray(
         function(err, item){
             if(!err) {
-                callback(true, item);
+                callback(true, item[0]);
             } else {
                 callback(false, err);
             }
