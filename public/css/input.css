@@ -1,0 +1,32 @@
+input {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+  min-width: 280px;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 44px;
+  line-height: 46px;
+  font-size: 1em;
+  color: var(--primary-text-color);
+  border: 2px solid var(--primary-text-color);
+  border-radius: 4px;
+  outline: none;
+  background-color: transparent;
+}
+
+input:focus {
+  border-color: var(--primary-text-color-light);
+}
+
+input[type="submit"] {
+  background-color: var(--primary-text-color);
+  color: var(--primary-color);
+  cursor: pointer;
+  font-family: Roboto-Bold;
+}
+
+input[type="submit"]:active {
+  border-color: var(--primary-text-color-light);
+  background-color: var(--primary-text-color-light);
+}

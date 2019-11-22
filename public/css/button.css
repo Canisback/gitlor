@@ -1,0 +1,43 @@
+button {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+  width: 280px;
+  max-width: 100%;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 48px;
+  line-height: 48px;
+  font-size: 1em;
+  color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  background-color: var(--primary-text-color);
+  cursor: pointer;
+  font-family: Roboto-Bold;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background-color: var(--primary-text-color-light);
+}
+
+button:active {
+  background-color: var(--primary-text-color);
+}
+
+button.flat {
+  background-color: transparent;
+  color: var(--primary-text-color);
+}
+
+button.flat:hover {
+  background-color: rgba(0,0,0,0.2);
+  color: var(--primary-text-color);
+}
+
+button.flat:active {
+  background-color: rgba(0,0,0,0.6);
+  color: var(--primary-text-color);
+}
